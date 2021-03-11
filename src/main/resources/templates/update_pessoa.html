@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>SoftPerson</title>
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<h2>Cadastro de Pessoa</h2>
+		<hr>
+		<h3>Alterar</h3>
+
+		<form action="#" th:action="@{/save}" th:object="${pessoa}" method="POST">
+			
+			<input type="hidden" th:field="*{id}" />
+						
+			<div>
+				<label for="nome">Nome</label>
+				<input type="text" th:field="*{nome}"	placeholder="Nome" class="form-control mb-4 col-4">
+				<span th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+			</div>
+			
+			<div>
+				<label for="cpf">CPF</label>
+				<input type="text" th:field="*{cpf}" placeholder="CPF" class="form-control mb-4 col-4">
+				<span th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></span>
+			</div>								
+			
+			
+			<div>
+				<label>Sexo</label>
+					<select
+						th:field="*{sexo}">
+						<option th:value="'Masculino'" th:text="Masculino"></option>
+						<option th:value="'Feminino'" th:text="Feminino"></option>
+				    </select>
+			</div>				
+				
+			<div>
+				<label for="datanascimento">Data Nascimento</label>
+				<input type="date" th:field="*{datanascimento}"
+				placeholder="Data Nascimento" class="form-control mb-4 col-4">
+			</div>
+			
+			<div>
+				<label for="naturalidade">Naturalidade</label>
+				<input type="text" th:field="*{naturalidade}"
+				placeholder="Naturalidade" class="form-control mb-4 col-4">
+			</div>				
+			
+			<div>
+				<label for="nacionalidade">Nacionalidade</label>
+				<input type="text" th:field="*{Nacionalidade}"
+				placeholder="Nacionalidade" class="form-control mb-4 col-4">
+			</div>				
+				
+			<div>
+					<label for="email">Email</label>				
+					<input type="text" th:field="*{email}"
+					placeholder="Email" class="form-control mb-4 col-4">
+				</div>
+				
+			<div>
+			
+			<div>
+			<button type="submit" class="btn btn-info col-2"> Alterar</button>
+			</div>
+			
+		</form>
+		
+		<hr>		
+		<a th:href = "@{/}"> Retornar</a>
+	</div>
+</body>
+</html>
