@@ -16,12 +16,15 @@
 
 ## Executar no Docker 
 
+A imagem está disponivel em https://hub.docker.com/r/jrnascimento/softperson
+
 Crie a imagem e execute containers
 
 mvn jib:dockerBuild
 
 docker-compose up --build
 
-O servidor esta sendo executado em localhost:8080/login.html
+O servidor esta sendo executado em https://localhost:8080/login.html
 
-Swagger UI estará disponível em localhost:8080/swagger-ui.html
+Swagger UI estará disponível em https://localhost:8080/swagger-ui.html
+
