@@ -18,6 +18,8 @@
 
 A imagem está disponivel em https://hub.docker.com/r/jrnascimento/softperson
 
+docker pull jrnascimento/softperson
+
 Crie a imagem e execute containers
 
 mvn jib:dockerBuild
