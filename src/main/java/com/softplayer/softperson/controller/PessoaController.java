@@ -1,6 +1,7 @@
 package com.softplayer.softperson.controller;
 
 import java.io.IOException;
+import java.time.Instant;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +18,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.softplayer.softperson.domain.Pessoa;
@@ -50,7 +50,7 @@ public class PessoaController {
 	@PostMapping("/save")
 	public String save(@ModelAttribute("pessoa") @Valid Pessoa pessoa, BindingResult result, RedirectAttributes attributes) {		
 		
-		if(service.existsByCpf(pessoa.getCpf()))
+		if(pessoa.getId() == null && service.existsByCpf(pessoa.getCpf()))
 		{
 			attributes.addFlashAttribute("mensagem", "CPF  já existe ");
 			return "redirect:/novoCadastro";
@@ -68,6 +68,8 @@ public class PessoaController {
 	@GetMapping("/update/{id}")
 	public String update(@PathVariable ( value = "id") Integer id, Model model) {
 		Pessoa pessoa = service.getPessoaById(id);
+		
+		pessoa.setDataAlteracao(Instant.now());
 		
 		model.addAttribute("pessoa", pessoa);
 		return "update_pessoa";
@@ -104,7 +106,7 @@ public class PessoaController {
 	
 	@GetMapping("/source")
 	public void viewHomePageGitHub(HttpServletResponse httpServletResponse) throws IOException {
-	    httpServletResponse.sendRedirect("https://github.com/jrnascimentodev/projetospringboot");	
+	    httpServletResponse.sendRedirect("https://github.com/jrnascimentodev/softplan");	
 	}
 
 }

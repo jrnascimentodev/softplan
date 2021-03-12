@@ -1,6 +1,8 @@
 package com.softplayer.softperson.domain;
 
 import java.io.Serializable;
+import java.time.Instant;
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -42,6 +44,9 @@ public class Pessoa implements Serializable{
 	@CPF
 	private String cpf;
 	
+	private Instant dataCadastro = Instant.now();
+	private Instant dataAlteracao;
+	
 	public Pessoa() {
 	}
 
@@ -52,7 +57,9 @@ public class Pessoa implements Serializable{
 			      Date datanascimento, 
 			      String naturalidade,
 			      String nacionalidade, 
-			      String cpf) {
+			      String cpf,
+			      Instant dataCadastro,
+			      Instant dataAlteracao) {
 		super();
 		Id = id;
 		this.nome = nome;
@@ -62,6 +69,8 @@ public class Pessoa implements Serializable{
 		this.naturalidade = naturalidade;
 		this.nacionalidade = nacionalidade;
 		this.cpf = cpf;
+		this.dataCadastro = dataCadastro;
+		this.dataAlteracao = dataAlteracao;
 	}
 
 	public Integer getId() {
@@ -126,6 +135,22 @@ public class Pessoa implements Serializable{
 
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
+	}
+
+	public Instant getDataCadastro() {
+		return dataCadastro;
+	}
+
+	public void setDataCadastro(Instant dataCadastro) {
+		this.dataCadastro = dataCadastro;
+	}
+
+	public Instant getDataAlteracao() {
+		return dataAlteracao;
+	}
+
+	public void setDataAlteracao(Instant dataAlteracao) {
+		this.dataAlteracao = dataAlteracao;
 	}
 
 	@Override
