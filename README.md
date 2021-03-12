@@ -1,4 +1,4 @@
-# softplan
+# Seleção Dev Java
 ## Software e Ferramentas
 * Java 11
 * Spring Tool Suite (STS)
