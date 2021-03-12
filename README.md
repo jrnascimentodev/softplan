@@ -18,6 +18,8 @@
 
 Crie a imagem e execute containers
 
+mvn jib:dockerBuild
+
 docker-compose up --build
 
 O servidor esta sendo executado em localhost:8080/login.html
