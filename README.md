@@ -20,4 +20,4 @@ Crie a imagem e execute containers
 
 docker-compose up --build
 
-*O servidor esta sendo executado em localhost:8080/login
+O servidor esta sendo executado em localhost:8080/login
